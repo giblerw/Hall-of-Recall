@@ -21,9 +21,6 @@ const newUser = {
   }
 };
 
-router.get('/', (req,res) => {
-  res.render('index');
-})
 //Create User
 // client.createUser(newUser)
 // .then(user => {

@@ -18,6 +18,7 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
 app.get('/', (req,res) => {
   res.render('auth');
 })
