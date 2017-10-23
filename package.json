@@ -1,0 +1,19 @@
+{
+  "name": "hall-of-recall",
+  "version": "1.0.0",
+  "description": "A memory mapping game space",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClarkWalker/Hall-of-Recall.git"
+  },
+  "author": "Clark Walker, Clavin Kreusser, Shayla Richard, Tito Yslas, Weston Gibler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ClarkWalker/Hall-of-Recall/issues"
+  },
+  "homepage": "https://github.com/ClarkWalker/Hall-of-Recall#readme"
+}
