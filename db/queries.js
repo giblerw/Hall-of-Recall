@@ -1,7 +1,5 @@
-module.exports = {
-var knex = require('./knex')
+let knex = require('./knex');
 
-};
 // module.exports = {
 //   getUsers: function() {
 //     return knex('users').select()
@@ -15,3 +13,7 @@ var knex = require('./knex')
 //       .where('user_id', id)
 //   }
 // }
+
+// module.exports = {
+//
+// };
