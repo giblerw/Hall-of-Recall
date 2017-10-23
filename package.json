@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/giblerw/Hall-of-Recall#readme",
   "dependencies": {
+    "@okta/okta-sdk-nodejs": "^0.3.0",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
