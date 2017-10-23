@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Virtual memory palace in a game space.",
   "main": "app.js",
+  "web": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "app.js"
