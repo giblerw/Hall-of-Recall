@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -24,13 +24,8 @@
     "express": "^4.16.2",
     "hbs": "^4.0.1",
     "knex": "^0.13.0",
-<<<<<<< HEAD
     "nodemon": "^1.12.1",
-    "pg": "^7.3.0"
-=======
-    "materialize-css": "^0.100.2",
     "pg": "^7.3.0",
-    "uikit": "^3.0.0-beta.31"
->>>>>>> 81f86260641173b9ceb8572cc30fa0131fa1ba4c
+    "materialize-css": "^0.100.2"
   }
 }
