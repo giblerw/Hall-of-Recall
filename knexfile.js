@@ -4,9 +4,9 @@ module.exports = {
 
   development: {
     client: 'pg',
-// Connect our database here
-    connection: 'postgres://localhost/hallOfRecall'
-
+    connection: {
+      database: 'hallOfRecall'
+    }
   },
   production: {
     client: 'pg',

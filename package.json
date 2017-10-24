@@ -7,7 +7,7 @@
   "description": "Virtual memory palace in a game space.",
   "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node app.js",
     "migrate": "knex migrate:latest"
 },
   "engines": {
