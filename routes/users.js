@@ -1,17 +1,14 @@
-var express = require('express');
-var router = express.Router();
+
+const express = require('express')
+const router = express.Router()
 const db = require('../db/knex')
 
 
-//Create User
-// client.createUser(newUser)
-// .then(user => {
-//   console.log('Created user', user);
-// });
+router.get('/', async (req, res, next) => {
+  const Users = await db('users')
+console.log(Users);
+  res.json(Users)
 
-//Read user
+});
 
-// client.getUser('foo@bar.com').then(user => {
-//   console.log(user);
-// });
-module.exports = router;
+module.exports = router
