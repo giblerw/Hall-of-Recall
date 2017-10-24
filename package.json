@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "Virtual memory palace in a game space.",
   "main": "app.js",
-  "web": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
-  },
+    "start": "node ./bin/www",
+    "migrate": "knex migrate:latest"
+},
+  "engines": {
+    "node": "8.5.0"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/giblerw/Hall-of-Recall.git"
@@ -26,7 +28,6 @@
     "hbs": "^4.0.1",
     "knex": "^0.13.0",
     "materialize-css": "^0.100.2",
-    "pg": "^7.3.0",
-    "uikit": "^3.0.0-beta.31"
-  }
+    "pg": "^7.3.0"
+    }
 }
