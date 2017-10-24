@@ -1,3 +1,4 @@
+
 const db = require('./connection');
 
 function createUser(user) {
@@ -23,3 +24,24 @@ module.exports = {
 	getUserById,
 	login
 };
+
+let knex = require('./knex');
+
+// module.exports = {
+//   getUsers: function() {
+//     return knex('users').select()
+//   },
+//   getUserById: function(id) {
+//     return knex('users').select().where('id', id)
+//   },
+//   getSecretsByUserId: function(id) {
+//     return knex('secrets')
+//       .select('id', 'secret')
+//       .where('user_id', id)
+//   }
+// }
+
+// module.exports = {
+//
+// };
+
