@@ -1,6 +1,9 @@
 {
   "name": "hall-of-recall",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.7.0"
+  },
   "description": "Virtual memory palace in a game space.",
   "main": "app.js",
   "scripts": {
