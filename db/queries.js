@@ -8,7 +8,7 @@ function createUser(user) {
 }
 
 function getUserById(id) {
-	return db('users').first().where('id', id);
+	return db('users').where('id', id).first();
 }
 //needs work
 function generatePassword(password) {
