@@ -7,9 +7,12 @@
   "description": "Virtual memory palace in a game space.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
+    "start": "node ./bin/www",
+    "migrate": "knex migrate:latest"
+},
+  "engines": {
+    "node": "8.5.0"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/giblerw/Hall-of-Recall.git"
