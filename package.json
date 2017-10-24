@@ -1,6 +1,9 @@
 {
   "name": "hall-of-recall",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.7.0"
+  },
   "description": "Virtual memory palace in a game space.",
   "main": "app.js",
   "scripts": {
@@ -27,8 +30,14 @@
     "express": "^4.16.2",
     "hbs": "^4.0.1",
     "knex": "^0.13.0",
+<<<<<<< HEAD
     "materialize-css": "^0.100.2",
     "pg": "^7.3.0",
     "sqlite3": "^3.1.13"
+=======
+    "nodemon": "^1.12.1",
+    "pg": "^7.3.0",
+    "materialize-css": "^0.100.2"
+>>>>>>> 673df0339103be5d4c1968c9ef1c22c7f9389894
   }
 }

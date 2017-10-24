@@ -45,12 +45,18 @@ app.get('/api/users/:id', (req, res, next) => {
 
 
 
+
 // app.use('/index', index);
 // app.use('/users', users);
 
 // app.get('/', (req,res) => {
 //   res.render('auth');
 // })
+
+app.get('/', (req,res) => {
+  res.render('auth');
+});
+
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
@@ -72,6 +78,6 @@ app.get('/api/users/:id', (req, res, next) => {
 
 app.listen(port, () => {
   console.log(`Api listening on port 3000`);
-})
+});
 
 module.exports = app;
