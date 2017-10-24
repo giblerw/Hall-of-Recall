@@ -19,12 +19,29 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+
 app.post('/api/users', (req, res, next) => {
 	db.createUser(req.body)
 		.then(user => res.status(201).json(user))
 		.catch(err => res.status(500).send(err));
 });
 
+app.get('/api/users/:id', (req, res, next) => {
+  var id = req.params.id;
+
+	db.getUserById(id)
+		.then((user) => {
+			if(!user) {
+				res.sendStatus(401);
+			}
+			else {
+    console.log(user);
+				res.json(user);
+			}
+		})
+		.catch(err => res.status(500).send(err));
+});
 
 
 
