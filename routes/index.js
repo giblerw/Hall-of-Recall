@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const db = require('../db/knex')
+const db = require('../db/knex');
 
 
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
+//   res.render('index', {title: 'Express'});
 // });
 
 module.exports = router;
