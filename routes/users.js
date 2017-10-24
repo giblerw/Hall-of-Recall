@@ -6,7 +6,7 @@ const db = require('../db/knex')
 
 router.get('/', async (req, res, next) => {
   const Users = await db('users')
-console.log(Users);
+console.log('hello');
   res.json(Users)
 
 });
