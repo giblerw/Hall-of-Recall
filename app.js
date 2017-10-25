@@ -18,7 +18,7 @@ app.set('view engine', 'hbs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(express.static('public'));
 
 
 // app.post('/api/users', (req, res, next) => {
@@ -63,6 +63,9 @@ app.get('/', (req,res) => {
 });
 app.get('/index', (req,res) => {
   res.render('index');
+});
+app.get('/game', (req,res) => {
+  res.render('game');
 });
 
 // app.use('/index', index);
