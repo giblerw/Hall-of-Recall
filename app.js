@@ -17,14 +17,52 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 app.use(bodyParser.json());
+<<<<<<< HEAD
 app.use(bodyParser.urlencoded({extended: false}));
+=======
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('public'));
+>>>>>>> 1245a560b224179a841ab7b79768bd9b239913a4
 
-app.post('/api/users', (req, res, next) => {
-	db.createUser(req.body)
-		.then(user => res.status(201).json(user))
+
+// app.post('/api/users', (req, res, next) => {
+// 	db.createUser(req.body)
+// 		.then(user => res.status(201).json(user))
+// 		.catch(err => res.status(500).send(err));
+// });
+// if you send login to postman
+// app.post('/api/users/login', (req, res, next) => {
+// 	db.login(req.body.code)
+// 		.then(user => {
+// //if there is no user...
+// 			if(!user) {
+// 				res.sendStatus(401);
+// 			}
+// //if there is a user...
+// 			else {
+// 				res.json(user);
+// 			}
+// 		})
+// // if anything else happens outside of the .get request
+// 		.catch(err => {
+// 			res.status(500).send(err);
+// 		});
+// });
+app.get('/api/users/:id', (req, res, next) => {
+  var id = req.params.id;
+	db.getUserById(id)
+		.then((user) => {
+			if(!user) {
+				res.sendStatus(401);
+			}
+			else {
+        res.json({data:user});
+			}
+		})
 		.catch(err => res.status(500).send(err));
 });
 
+<<<<<<< HEAD
 
 
 app.get('/api/users/:id', (req, res, next) => {
@@ -41,6 +79,16 @@ app.get('/api/users/:id', (req, res, next) => {
             }
         })
         .catch(err => res.status(500).send(err));
+=======
+app.get('/', (req,res) => {
+  res.render('auth');
+});
+app.get('/index', (req,res) => {
+  res.render('index');
+});
+app.get('/game', (req,res) => {
+  res.render('game');
+>>>>>>> 1245a560b224179a841ab7b79768bd9b239913a4
 });
 
 // app.use('/index', index);
@@ -50,9 +98,7 @@ app.get('/api/users/:id', (req, res, next) => {
 //   res.render('auth');
 // })
 
-app.get('/', (req,res) => {
-  res.render('auth');
-});
+
 
 
 // catch 404 and forward to error handler
