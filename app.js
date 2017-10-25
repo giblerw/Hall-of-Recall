@@ -67,7 +67,9 @@ app.get('/index', (req,res) => {
 app.get('/game', (req,res) => {
   res.render('game');
 });
-
+app.get('/howto', (req,res) => {
+  res.render('howto');
+});
 // app.use('/index', index);
 // app.use('/users', users);
 
