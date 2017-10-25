@@ -42,14 +42,17 @@ function update() {
   game.camera.follow(player);
   player.body.velocity.x = 0;
   if (cursors.left.isDown) {
+    player.body.velocity.x = -150;
     player.animations.play('left');
   } else if (cursors.right.isDown) {
     player.animations.play('right');
+    player.body.velocity.x = 150;
   } else {
     player.animations.stop();
     player.frame = 4;
   }
 
+// Define hitPlatform DO ET
   if (jumpButton.isDown && player.body.onFloor() && game.time.now > jumpTimer) {
     player.body.velocity.y = -250;
     jumpTimer = game.time.now + 750;
