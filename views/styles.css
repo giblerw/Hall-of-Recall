@@ -1,11 +1,11 @@
 /*nav .brand-logo {
   margin-left: 20px;
 }*/
-* {
-  border: 1px solid red;
+body {
+  background-color: red;
 }
 
 .container {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row ;
 }
