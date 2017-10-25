@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var knex = require('knex');
 var pg = require('pg');
 
-
 //routes
 // var index = require('./routes/index');
 // var users = require('./routes/users');
