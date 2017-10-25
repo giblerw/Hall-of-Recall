@@ -1,31 +1,35 @@
 
 const db = require('./connection');
 
-function createUser(user) {
-	const password = generatePassword();
-	user.password = password;
-	return db('users').insert(user).returning(['id', 'code']);
-}
+// function createUser(user) {
+// 	const password = generatePassword();
+// 	user.password = password;
+// 	return db('users').insert(user).returning(['id', 'code']);
+// };
+
+function getUserByEmail(email) {
+    return db('users').where('email', email).first();
+  };
 
 function getUserById(id) {
 	return db('users').where('id', id).first();
-}
+};
 //needs work
-function generatePassword(password) {
-	return db('password');
-}
+// function generatePassword(password) {
+// 	return db('password');
+// }
 
 function login(password) {
 	return db('users').select().where('password', password);
 }
 
 module.exports = {
-	createUser,
+	
 	getUserById,
 	login
 };
 
-let knex = require('./knex');
+
 
 // module.exports = {
 //   getUsers: function() {
@@ -44,4 +48,3 @@ let knex = require('./knex');
 // module.exports = {
 //
 // };
-

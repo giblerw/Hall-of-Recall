@@ -21,30 +21,49 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 
-app.post('/api/users', (req, res, next) => {
-	db.createUser(req.body)
-		.then(user => res.status(201).json(user))
-		.catch(err => res.status(500).send(err));
-});
-
+// app.post('/api/users', (req, res, next) => {
+// 	db.createUser(req.body)
+// 		.then(user => res.status(201).json(user))
+// 		.catch(err => res.status(500).send(err));
+// });
+// if you send login to postman
+// app.post('/api/users/login', (req, res, next) => {
+// 	db.login(req.body.code)
+// 		.then(user => {
+// //if there is no user...
+// 			if(!user) {
+// 				res.sendStatus(401);
+// 			}
+// //if there is a user...
+// 			else {
+// 				res.json(user);
+// 			}
+// 		})
+// // if anything else happens outside of the .get request
+// 		.catch(err => {
+// 			res.status(500).send(err);
+// 		});
+// });
 app.get('/api/users/:id', (req, res, next) => {
   var id = req.params.id;
-
 	db.getUserById(id)
 		.then((user) => {
 			if(!user) {
 				res.sendStatus(401);
 			}
 			else {
-    console.log(user);
-				res.json(user);
+        res.json({data:user});
 			}
 		})
 		.catch(err => res.status(500).send(err));
 });
 
-
-
+app.get('/', (req,res) => {
+  res.render('auth');
+});
+app.get('/index', (req,res) => {
+  res.render('index');
+});
 
 // app.use('/index', index);
 // app.use('/users', users);
@@ -53,9 +72,7 @@ app.get('/api/users/:id', (req, res, next) => {
 //   res.render('auth');
 // })
 
-app.get('/', (req,res) => {
-  res.render('auth');
-});
+
 
 
 // catch 404 and forward to error handler
