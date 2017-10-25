@@ -8,7 +8,7 @@ function createUser(user) {
 }
 
 function getUserById(id) {
-	return db('users').first().where('id', id);
+	return db('users').where('id', id).first();
 }
 //needs work
 function generatePassword(password) {
@@ -25,7 +25,6 @@ module.exports = {
 	login
 };
 
-let knex = require('./knex');
 
 // module.exports = {
 //   getUsers: function() {
@@ -44,4 +43,3 @@ let knex = require('./knex');
 // module.exports = {
 //
 // };
-
