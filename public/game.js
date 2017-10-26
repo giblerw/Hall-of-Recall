@@ -11,6 +11,7 @@ function preload() {
   game.load.tilemap('hRecall_map', 'hRecall_map.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tiles', '/assets/castle_tileset_part1.png');
   game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+  game.load.image('sign', 'assets/recallsigntiny.png');
 }
 
 function create() {
@@ -24,9 +25,20 @@ function create() {
   reliefLayer = map.createLayer('reliefLayer');
   game.physics.enable(collisionLayer);
 
+  signs = game.add.group();
+  signs.scale.setTo(1, 1);
+  signs.enableBody = true;
+  signs.physicsBodyType = Phaser.Physics.ARCADE;
+  signs.createMultiple(1000, 'sign');
+  signs.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetSign);
+  signs.callAll('anchor.setTo', 'anchor', 0.5, 0.5);
+  signs.setAll('checkWorldBounds', true);
+  console.log(signs);
+
   player = game.add.sprite(100, game.world.height - 560, 'dude');
   game.physics.enable(player);
   map.setCollisionBetween(1, 1000, true, collisionLayer);
+  console.log(player);
 
   player.body.collideWorldBounds = true;
   player.body.bounce.y = 0.2;
@@ -39,21 +51,63 @@ function create() {
   upKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
   downKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
   jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+  placeSignKey = game.input.keyboard.addKey(Phaser.Keyboard.P);
 
   cursors = game.input.keyboard.createCursorKeys();
 }
 
+function resetSign(sign) {
+  sign.kill();
+}
+
+function touchDown() {
+  pDown = true;
+  placeSign();
+}
+
+function touchUp() {
+  pDown = false;
+}
+
+function placeSign() {
+  var sign = signs.getFirstExists(false);
+  console.log(sign.position);
+  console.log(player.position);
+  if (sign) {
+    sign.reset(player.x + 15, player.y + 30);
+  }
+}
+
 var jumpTimer = 0;
 var player;
+var pDown = false;
+var signs;
 
 function update() {
   game.physics.arcade.collide(player, collisionLayer);
   game.camera.follow(player);
   player.body.velocity.x = 0;
+
+  if (game.input.activePointer.isDown) {
+    if (!pDown) {
+      touchDown();
+    }
+    else {
+      if (pDown) {
+        touchUp();
+      }
+    }
+  }
+
+  if (placeSignKey.isDown && player.body.onFloor()) {
+    placeSign();
+  }
+
   if (cursors.left.isDown || leftKey.isDown) {
     player.animations.play('left');
   } else if (cursors.right.isDown || rightKey.isDown) {
     player.animations.play('right');
+    // console.log(player);
   } else {
     player.animations.stop();
     player.frame = 4;
@@ -66,9 +120,7 @@ function update() {
   if (cursors.right.isDown || rightKey.isDown) {
     player.body.velocity.x = 150;
   }
-// Define hitPlatform DO ET
-  // if (cursors.up.isDown && player.body.touching.down && hitPlatform) {
-  //   player.body.velocity.y = -350;
+
   if ((jumpButton.isDown && player.body.onFloor() ||
   upKey.isDown ||
   cursors.up.isDown) && game.time.now > jumpTimer) {
