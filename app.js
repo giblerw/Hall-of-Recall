@@ -16,12 +16,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 app.use(bodyParser.json());
-<<<<<<< HEAD
-app.use(bodyParser.urlencoded({extended: false}));
-=======
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
->>>>>>> 1245a560b224179a841ab7b79768bd9b239913a4
 
 
 // app.post('/api/users', (req, res, next) => {
