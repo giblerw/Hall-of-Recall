@@ -33,12 +33,10 @@ function create() {
   signs.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetSign);
   signs.callAll('anchor.setTo', 'anchor', 0.5, 0.5);
   signs.setAll('checkWorldBounds', true);
-  console.log(signs);
 
   player = game.add.sprite(100, game.world.height - 560, 'dude');
   game.physics.enable(player);
   map.setCollisionBetween(1, 1000, true, collisionLayer);
-  console.log(player);
 
   player.body.collideWorldBounds = true;
   player.body.bounce.y = 0.2;
@@ -73,8 +71,6 @@ function touchUp() {
 
 function placeSign() {
   var sign = signs.getFirstExists(false);
-  console.log(sign.position);
-  console.log(player.position);
   if (sign) {
     sign.reset(player.x + 15, player.y + 30);
   }
