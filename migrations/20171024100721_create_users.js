@@ -7,8 +7,8 @@ exports.up = function(knex, Promise) {
     table.string('username');
     table.string('password');
     table.string('email');
-  })
-]);
+    })
+  ]);
 };
 
 exports.down = function(knex, Promise) {
