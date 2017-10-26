@@ -4,6 +4,9 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
   update: update
 });
 
+var jumpTimer = 0;
+var player;
+
 function preload() {
   game.load.tilemap('hRecall_map', 'hRecall_map.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tiles', '/assets/castle_tileset_part1.png');
@@ -11,25 +14,34 @@ function preload() {
 }
 
 function create() {
+  game.world.setBounds(0, 0, 1280, 800);
   game.physics.startSystem(Phaser.Physics.ARCADE);
+
   map = game.add.tilemap('hRecall_map');
   map.addTilesetImage('castle', 'tiles');
-  bgLayer = map.createLayer('bgLayer');
   collisionLayer = map.createLayer('collisionLayer');
-  reliefLayer = map.createLayer('reliefLayer')
+  bgLayer = map.createLayer('bgLayer');
+  reliefLayer = map.createLayer('reliefLayer');
+  game.physics.enable(collisionLayer);
 
+  player = game.add.sprite(100, game.world.height - 560, 'dude');
+  game.physics.enable(player);
+  map.setCollisionBetween(1, 1000, true, collisionLayer);
 
-  player = game.add.sprite(100, game.world.height - 550, 'dude');
-  game.physics.arcade.enable(player);
+  player.body.collideWorldBounds = true;
   player.body.bounce.y = 0.2;
   player.body.gravity.y = 300;
-  player.body.collideWorldBounds = true;
   player.animations.add('left', [0, 1, 2, 3], 10, true);
   player.animations.add('right', [5, 6, 7, 8], 10, true);
+
+  cursors = game.input.keyboard.createCursorKeys();
+  jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 }
 
 function update() {
-  cursors = game.input.keyboard.createCursorKeys();
+  game.physics.arcade.collide(player, collisionLayer);
+
+  game.camera.follow(player);
   player.body.velocity.x = 0;
 
   if (cursors.left.isDown) {
@@ -43,8 +55,11 @@ function update() {
     player.frame = 4;
   }
 
-// Define hitPlatform DO ET
-  if (cursors.up.isDown && player.body.touching.down && hitPlatform) {
-    player.body.velocity.y = -350;
+  if (jumpButton.isDown && player.body.onFloor() && game.time.now > jumpTimer) {
+    player.body.velocity.y = -325;
+    jumpTimer = game.time.now + 750;
   }
+  // if (cursors.up.isDown && player.body.touching.down && hitPlatform) {
+  //   player.body.velocity.y = -350;
+  // }
 }
