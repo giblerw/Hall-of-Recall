@@ -1,35 +1,26 @@
 {
-  "name": "hall-of-recall",
+  "name": "Hall-of-Recall",
   "version": "1.0.0",
-  "engines": {
-    "node": "8.5.0"
-  },
   "description": "Virtual memory palace in a game space.",
   "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "knex": "^0.13.0",
+    "pg": "^7.3.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node app.js",
-    "migrate": "knex migrate:latest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/giblerw/Hall-of-Recall.git"
+    "url": "git+https://github.com/shaylas-angels/Hall-of-Recall.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/giblerw/Hall-of-Recall/issues"
+    "url": "https://github.com/shaylas-angels/Hall-of-Recall/issues"
   },
-  "homepage": "https://github.com/giblerw/Hall-of-Recall#readme",
-  "dependencies": {
-    "@okta/okta-sdk-nodejs": "^0.3.0",
-    "body-parser": "^1.18.2",
-    "dotenv": "^4.0.0",
-    "express": "^4.16.2",
-    "hbs": "^4.0.1",
-    "knex": "^0.13.0",
-    "materialize-css": "^0.100.2",
-    "pg": "^7.3.0",
-    "sqlite3": "^3.1.13",
-    "nodemon": "^1.12.1"
-  }
+  "homepage": "https://github.com/shaylas-angels/Hall-of-Recall#readme"
 }

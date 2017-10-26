@@ -50,9 +50,11 @@ function create() {
   rightKey = game.input.keyboard.addKey(Phaser.Keyboard.D);
   upKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
   downKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
+
   jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   placeSignKey = game.input.keyboard.addKey(Phaser.Keyboard.P);
 
+  jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   cursors = game.input.keyboard.createCursorKeys();
 }
 
@@ -104,8 +106,10 @@ function update() {
   }
 
   if (cursors.left.isDown || leftKey.isDown) {
+    player.body.velocity.x = -150;
     player.animations.play('left');
   } else if (cursors.right.isDown || rightKey.isDown) {
+    player.body.velocity.x = 150;
     player.animations.play('right');
     // console.log(player);
   } else {
@@ -113,17 +117,16 @@ function update() {
     player.frame = 4;
   }
 
-
-  if (cursors.left.isDown || leftKey.isDown) {
-    player.body.velocity.x = -150;
-  }
-  if (cursors.right.isDown || rightKey.isDown) {
+  if (cursors.left.isDown && rightKey.isDown) {
     player.body.velocity.x = 150;
+    player.animations.play('left');
+  }
+  if (cursors.right.isDown && leftKey.isDown) {
+    player.body.velocity.x = -150;
+    player.animations.play('right');
   }
 
-  if ((jumpButton.isDown && player.body.onFloor() ||
-  upKey.isDown ||
-  cursors.up.isDown) && game.time.now > jumpTimer) {
+  if ((jumpButton.isDown || upKey.isDown || cursors.up.isDown) && player.body.onFloor() && game.time.now > jumpTimer) {
     player.body.velocity.y = -325;
     jumpTimer = game.time.now + 750;
   }
