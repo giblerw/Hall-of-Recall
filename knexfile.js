@@ -4,12 +4,11 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/hallOfRecall'  
+    connection: 'postgres://localhost/hallOfRecall'
   },
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL
-
   }
 
 };
