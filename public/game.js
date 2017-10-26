@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
+var game = new Phaser.Game(1150, 600, Phaser.AUTO, 'game', {
   preload: preload,
   create: create,
   update: update
@@ -34,16 +34,17 @@ function create() {
   player.animations.add('left', [0, 1, 2, 3], 10, true);
   player.animations.add('right', [5, 6, 7, 8], 10, true);
 
-  cursors = game.input.keyboard.createCursorKeys();
   jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+  cursors = game.input.keyboard.createCursorKeys();
 }
+
+var jumpTimer = 0;
+var player;
 
 function update() {
   game.physics.arcade.collide(player, collisionLayer);
-
   game.camera.follow(player);
   player.body.velocity.x = 0;
-
   if (cursors.left.isDown) {
     player.body.velocity.x = -150;
     player.animations.play('left');
@@ -59,7 +60,4 @@ function update() {
     player.body.velocity.y = -325;
     jumpTimer = game.time.now + 750;
   }
-  // if (cursors.up.isDown && player.body.touching.down && hitPlatform) {
-  //   player.body.velocity.y = -350;
-  // }
 }
