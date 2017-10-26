@@ -111,7 +111,6 @@ function update() {
   } else if (cursors.right.isDown || rightKey.isDown) {
     player.body.velocity.x = 150;
     player.animations.play('right');
-    // console.log(player);
   } else {
     player.animations.stop();
     player.frame = 4;
