@@ -8,27 +8,25 @@ const db = require('./connection');
 // };
 
 function getUserByEmail(email) {
-    return db('users').where('email', email).first();
-  };
+  return db('users').where('email', email).first();
+}
 
 function getUserById(id) {
-	return db('users').where('id', id).first();
-};
+  return db('users').where('id', id).first();
+}
 //needs work
 // function generatePassword(password) {
-// 	return db('password');
+//   return db('password');
 // }
 
 function login(password) {
-	return db('users').select().where('password', password);
+  return db('users').select().where('password', password);
 }
 
 module.exports = {
-	
-	getUserById,
-	login
+  getUserById,
+  login
 };
-
 
 
 // module.exports = {
