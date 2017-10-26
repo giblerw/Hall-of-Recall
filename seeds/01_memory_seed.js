@@ -1,13 +1,13 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('memory').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex('memory').insert([
+        {id: 1, memoryData: 'to create a new seed >knex seed:make SEED_NAME'},
+        {id: 2, memoryData: 'to create a new migration >knex migrate:make TABLE_NAME'},
+        {id: 3, memoryData: 'to create a new ...'}
       ]);
     });
 };
