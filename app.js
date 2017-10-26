@@ -57,24 +57,6 @@ app.get('/api/users/:id', (req, res, next) => {
 		.catch(err => res.status(500).send(err));
 });
 
-<<<<<<< HEAD
-
-
-app.get('/api/users/:id', (req, res, next) => {
-  var id = req.params.id;
-	console.log(id);
-    db.getUserById(id)
-        .then((user) => {
-            if(!user) {
-                res.sendStatus(401);
-            }
-            else {
-							console.log(user);
-                res.json(user);
-            }
-        })
-        .catch(err => res.status(500).send(err));
-=======
 app.get('/', (req,res) => {
   res.render('auth');
 });
@@ -83,7 +65,6 @@ app.get('/index', (req,res) => {
 });
 app.get('/game', (req,res) => {
   res.render('game');
->>>>>>> 1245a560b224179a841ab7b79768bd9b239913a4
 });
 app.get('/howto', (req,res) => {
   res.render('howto');

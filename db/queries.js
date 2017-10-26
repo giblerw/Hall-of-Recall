@@ -13,11 +13,7 @@ function getUserByEmail(email) {
 
 function getUserById(id) {
 	return db('users').where('id', id).first();
-<<<<<<< HEAD
-}
-=======
 };
->>>>>>> 1245a560b224179a841ab7b79768bd9b239913a4
 //needs work
 // function generatePassword(password) {
 // 	return db('password');
@@ -32,11 +28,6 @@ module.exports = {
 	getUserById,
 	login
 };
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 1245a560b224179a841ab7b79768bd9b239913a4
 
 // module.exports = {
 //   getUsers: function() {
