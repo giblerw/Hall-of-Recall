@@ -12,8 +12,9 @@ function getUserByEmail(email) {
 }
 
 function getUserById(id) {
-  return db('users').where('id', id).first();
-}
+	return db('users').where('id', id).first();
+};
+
 //needs work
 // function generatePassword(password) {
 //   return db('password');
@@ -27,7 +28,6 @@ module.exports = {
   getUserById,
   login
 };
-
 
 // module.exports = {
 //   getUsers: function() {

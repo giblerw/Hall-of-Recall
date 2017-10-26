@@ -11,6 +11,7 @@ function preload() {
   game.load.tilemap('hRecall_map', 'hRecall_map.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tiles', '/assets/castle_tileset_part1.png');
   game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+  game.load.image('sign', 'assets/recallsigntiny.png');
 }
 
 function create() {
@@ -23,6 +24,15 @@ function create() {
   bgLayer = map.createLayer('bgLayer');
   reliefLayer = map.createLayer('reliefLayer');
   game.physics.enable(collisionLayer);
+
+  signs = game.add.group();
+  signs.scale.setTo(1, 1);
+  signs.enableBody = true;
+  signs.physicsBodyType = Phaser.Physics.ARCADE;
+  signs.createMultiple(1000, 'sign');
+  signs.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetSign);
+  signs.callAll('anchor.setTo', 'anchor', 0.5, 0.5);
+  signs.setAll('checkWorldBounds', true);
 
   player = game.add.sprite(100, game.world.height - 560, 'dude');
   game.physics.enable(player);
@@ -40,16 +50,57 @@ function create() {
   downKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
 
   jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+  placeSignKey = game.input.keyboard.addKey(Phaser.Keyboard.P);
+
+  jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   cursors = game.input.keyboard.createCursorKeys();
+}
+
+function resetSign(sign) {
+  sign.kill();
+}
+
+function touchDown() {
+  pDown = true;
+  placeSign();
+}
+
+function touchUp() {
+  pDown = false;
+}
+
+function placeSign() {
+  var sign = signs.getFirstExists(false);
+  if (sign) {
+    sign.reset(player.x + 15, player.y + 30);
+  }
 }
 
 var jumpTimer = 0;
 var player;
+var pDown = false;
+var signs;
 
 function update() {
   game.physics.arcade.collide(player, collisionLayer);
   game.camera.follow(player);
   player.body.velocity.x = 0;
+
+  if (game.input.activePointer.isDown) {
+    if (!pDown) {
+      touchDown();
+    }
+    else {
+      if (pDown) {
+        touchUp();
+      }
+    }
+  }
+
+  if (placeSignKey.isDown && player.body.onFloor()) {
+    placeSign();
+  }
+
   if (cursors.left.isDown || leftKey.isDown) {
     player.body.velocity.x = -150;
     player.animations.play('left');
@@ -70,9 +121,7 @@ function update() {
     player.animations.play('right');
   }
 
-  if ((jumpButton.isDown ||
-  upKey.isDown ||
-  cursors.up.isDown) && player.body.onFloor() && game.time.now > jumpTimer) {
+  if ((jumpButton.isDown || upKey.isDown || cursors.up.isDown) && player.body.onFloor() && game.time.now > jumpTimer) {
     player.body.velocity.y = -325;
     jumpTimer = game.time.now + 750;
   }
