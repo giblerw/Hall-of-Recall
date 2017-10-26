@@ -51,20 +51,23 @@ function update() {
   game.camera.follow(player);
   player.body.velocity.x = 0;
   if (cursors.left.isDown || leftKey.isDown) {
+    player.body.velocity.x = -150;
     player.animations.play('left');
   } else if (cursors.right.isDown || rightKey.isDown) {
+    player.body.velocity.x = 150;
     player.animations.play('right');
   } else {
     player.animations.stop();
     player.frame = 4;
   }
 
-
-  if (cursors.left.isDown || leftKey.isDown) {
-    player.body.velocity.x = -150;
-  }
-  if (cursors.right.isDown || rightKey.isDown) {
+  if (cursors.left.isDown && rightKey.isDown) {
     player.body.velocity.x = 150;
+    player.animations.play('left');
+  }
+  if (cursors.right.isDown && leftKey.isDown) {
+    player.body.velocity.x = -150;
+    player.animations.play('right');
   }
 
   if ((jumpButton.isDown ||
