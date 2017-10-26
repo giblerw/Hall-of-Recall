@@ -34,7 +34,12 @@ function create() {
   player.animations.add('left', [0, 1, 2, 3], 10, true);
   player.animations.add('right', [5, 6, 7, 8], 10, true);
 
+  leftKey = game.input.keyboard.addKey(Phaser.Keyboard.A);
+  rightKey = game.input.keyboard.addKey(Phaser.Keyboard.D);
+  upKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
+  downKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
   jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
   cursors = game.input.keyboard.createCursorKeys();
 }
 
@@ -45,18 +50,28 @@ function update() {
   game.physics.arcade.collide(player, collisionLayer);
   game.camera.follow(player);
   player.body.velocity.x = 0;
-  if (cursors.left.isDown) {
-    player.body.velocity.x = -150;
+  if (cursors.left.isDown || leftKey.isDown) {
     player.animations.play('left');
-  } else if (cursors.right.isDown) {
-    player.body.velocity.x = 150;
+  } else if (cursors.right.isDown || rightKey.isDown) {
     player.animations.play('right');
   } else {
     player.animations.stop();
     player.frame = 4;
   }
 
-  if (jumpButton.isDown && player.body.onFloor() && game.time.now > jumpTimer) {
+
+  if (cursors.left.isDown || leftKey.isDown) {
+    player.body.velocity.x = -150;
+  }
+  if (cursors.right.isDown || rightKey.isDown) {
+    player.body.velocity.x = 150;
+  }
+// Define hitPlatform DO ET
+  // if (cursors.up.isDown && player.body.touching.down && hitPlatform) {
+  //   player.body.velocity.y = -350;
+  if ((jumpButton.isDown && player.body.onFloor() ||
+  upKey.isDown ||
+  cursors.up.isDown) && game.time.now > jumpTimer) {
     player.body.velocity.y = -325;
     jumpTimer = game.time.now + 750;
   }
