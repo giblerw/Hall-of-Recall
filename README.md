@@ -7,7 +7,7 @@ The Hall-of- Recall is a game committed to allowing it's user to utilize the ide
 ## Github
 ## https://git.heroku.com/hall-of-recall.git
 
-#Contributors 
+##Contributors 
 
 * Weston Gibler
 * Calvin Kreusser
