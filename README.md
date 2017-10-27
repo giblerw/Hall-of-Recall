@@ -21,4 +21,4 @@ https://git.heroku.com/hall-of-recall.git
 JavaScript, HTML5, CSS3, Postregsql, Phaser, Node.js, ExpressJS
 
 ### Getting Started 
-Download & npm install for dependencies. 
+Download & ```npm install``` for dependencies. 
