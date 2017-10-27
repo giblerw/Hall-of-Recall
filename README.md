@@ -15,8 +15,8 @@ https://git.heroku.com/hall-of-recall.git
 * Clark Walker
 * Tito Yslas 
 
-Technologies 
+## Technologies 
 JavaScript, HTML5, CSS3, Postregsql, Phaser, Node.js, ExpressJS
 
-Getting Started 
+### Getting Started 
 Download & npm install for dependencies 
