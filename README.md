@@ -1,3 +1,5 @@
+# Hall-of-Recall
+
 ## Description 
 The Hall-of- Recall is a game committed to allowing it's user to utilize the ideology of a memory palace in a virtual space. 
 
@@ -19,4 +21,4 @@ https://git.heroku.com/hall-of-recall.git
 JavaScript, HTML5, CSS3, Postregsql, Phaser, Node.js, ExpressJS
 
 ### Getting Started 
-Download & npm install for dependencies 
+Download & npm install for dependencies. 
