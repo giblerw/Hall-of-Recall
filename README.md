@@ -1,5 +1,5 @@
 ## Description 
-##The Hall-of- Recall is a game committed to allowing it's user to utilize the ideology of a memory palace in a virtual space. 
+The Hall-of- Recall is a game committed to allowing it's user to utilize the ideology of a memory palace in a virtual space. 
 
 ## Heroku
 ## https://the-hall-of-recall.herokuapp.com/
@@ -7,7 +7,7 @@
 ## Github
 ## https://git.heroku.com/hall-of-recall.git
 
-##Contributors 
+Contributors 
 
 * Weston Gibler
 * Calvin Kreusser
