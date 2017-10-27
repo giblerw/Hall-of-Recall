@@ -7,7 +7,7 @@ The Hall-of- Recall is a game committed to allowing it's user to utilize the ide
 ## Github
 ## https://git.heroku.com/hall-of-recall.git
 
-Contributors 
+#Contributors 
 
 * Weston Gibler
 * Calvin Kreusser
@@ -15,8 +15,8 @@ Contributors
 * Clark Walker
 * Tito Yslas 
 
-##Technologies 
-JavaScript, HTML5, CSS2, Postregsql, Phaser, Node.js, ExpressJS
+Technologies 
+JavaScript, HTML5, CSS3, Postregsql, Phaser, Node.js, ExpressJS
 
 Getting Started 
 Download & npm install for dependencies 
