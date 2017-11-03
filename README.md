@@ -1,24 +1,28 @@
 # Hall-of-Recall
 
-## Description 
-The Hall-of- Recall is a game committed to allowing it's user to utilize the ideology of a memory palace in a virtual space. 
+## Description
+A game committed to enabling the user to access & utilize a virtual memory palace, thereby directly a connecting a spatial cue to each piece of data.
+<br>
+<br>
+A memory palace is a method of memory enhancement related to spatial memory and familiar environment awareness to quickly recall information.
+
 
 ### Heroku
- https://the-hall-of-recall.herokuapp.com/
+ [Stable Release](https://the-hall-of-recall.herokuapp.com/)
 
 ### Github
-https://git.heroku.com/hall-of-recall.git
+[Repository](https://github.com/shaylas-angels/Hall-of-Recall)
 
-### Contributors 
+### Contributors
 
 * Weston Gibler
 * Calvin Kreusser
 * Shayla Richard
 * Clark Walker
-* Tito Yslas 
+* Tito Yslas
 
-## Technologies 
-JavaScript, HTML5, CSS3, Postregsql, Phaser, Node.js, ExpressJS
+## Technologies
+JavaScript, HTML5, CSS3, PostgreSQL, Phaser, Node.js, ExpressJS
 
-### Getting Started 
-Download & ```npm install``` for dependencies. 
+### Getting Started
+Fork & clone and ```npm install``` for dependencies.
