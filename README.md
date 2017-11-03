@@ -11,7 +11,7 @@ A memory palace is a method of memory enhancement related to spatial memory and 
  [Stable Release](https://the-hall-of-recall.herokuapp.com/)
 
 ### Github
-[Repository](https://github.com/shaylas-angels/Hall-of-Recall)
+[Group Repository](https://github.com/shaylas-angels/Hall-of-Recall)
 
 ### Contributors
 
