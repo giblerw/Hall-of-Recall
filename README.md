@@ -5,6 +5,9 @@ A game committed to enabling the user to access & utilize a virtual memory palac
 <br>
 <br>
 A memory palace is a method of memory enhancement related to spatial memory and familiar environment awareness to quickly recall information.
+<br>
+<br>
+For a quick visual intro and walk-through with Shayla's Angels, check us out on [YouTube](https://goo.gl/S4tfc3)
 
 
 ### Heroku
